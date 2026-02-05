@@ -1,4 +1,4 @@
 Non adiabatic Holstein model in one dimension under deep quench simulation : data_generation.jl
 Combine the data for training dataset(trajectories) : data_augmentation.py
 
-.npy files are supplementary data which is generated and augmentated by two given codes(data_generation.jl, data_augmentation.py).
+.npy files are usable data for train.py code, which are generated and augmentated by two given codes(data_generation.jl, data_augmentation.py).
