@@ -67,6 +67,7 @@ function hopping_Hamiltonian_1D(dim::Int)
     end
     return H + H'
 end
+#
 
 onsite_Hamiltonian_1D(dim, Q) = -Diagonal(Q)
 compute_dX(Q, P, r, n) = r .* P
