@@ -172,7 +172,7 @@ end
 # Sweep over r and λ
 # --------------------------------------
 base_dir = ""
-r_values = [0.3]
+r_values = [0.5]
 λ_values = [0.67]
 dim_values = [32]
 seeds = 1:100
