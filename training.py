@@ -33,8 +33,8 @@ Y_val = np.load(os.path.join(data_dir, f"Y_val_T{Tlen}_r0.5.npy")) # (# of data,
 # ======================================
 # 2. Convert to torch tensors
 # ======================================
-X = torch.tensor(X, dtype=torch.float32)[:10000] # (demonstartion) : Slice(10000)
-Y = torch.tensor(Y, dtype=torch.float32)[:10000] # (demonstartion) : Slice(10000)
+X = torch.tensor(X, dtype=torch.float32)#[:10000] # (demonstartion) : Slice(10000)
+Y = torch.tensor(Y, dtype=torch.float32)#[:10000] # (demonstartion) : Slice(10000)
 
 # validation data will be used in the training to see the machine-generated trajectory
 X_val = torch.tensor(X_val, dtype=torch.float32) 
