@@ -65,6 +65,7 @@ function hopping_Hamiltonian_1D(dim::Int)
         j = mod1(i + 1, dim)
         H[i, j] = -1
     end
+    
     return H + H'
 end
 
