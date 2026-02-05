@@ -53,8 +53,6 @@ function compute_density_matrix_C(H, kT, mu)
 
     return D
 end
-
-
 # --------------------------------------
 # Hamiltonians and equations of motion
 # --------------------------------------
@@ -65,7 +63,7 @@ function hopping_Hamiltonian_1D(dim::Int)
         H[i, j] = -1
     end
     return H + H'
-    end
+end
 
 onsite_Hamiltonian_1D(dim, Q) = -Diagonal(Q)
 compute_dX(Q, P, r, n) = r .* P
