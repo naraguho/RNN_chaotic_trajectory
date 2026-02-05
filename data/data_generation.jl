@@ -23,11 +23,10 @@ using Statistics
 
 
 # Initialize state without net velocity : equal superposition with two state k= \pi/2 and -\pi/2
-function init_gs_deep_quench!(dim, Q, P, ρ; tp=1e-10)
-    Q .= 1e-4 * randn(dim)
-    P .= 1e-4 * randn(dim)
+function init_gs_deep_quench!(dim, Q, P, ρ; tp=1e-10, rng)
+    Q .= 1e-4 .* randn(rng, dim)
+    P .= 1e-4 .* randn(rng, dim)
     H0 = hopping_Hamiltonian_1D(dim)
-    #H1 = H0 #- Diagonal(Q)
     ρ .= compute_density_matrix_C(H0, tp, 0)
 end
 
@@ -138,7 +137,8 @@ function run_simulation(seed::Int, r::Float64, λ::Float64, dim::Int)
     X = zeros(dim)
     P = zeros(dim)
     ρ = zeros(ComplexF64, dim, dim)
-    init_gs_deep_quench!(dim, X, P, ρ; tp=1e-10)
+    rng = MersenneTwister(seed)
+    init_gs_deep_quench!(dim, X, P, ρ; tp=1e-10, rng=rng)
     println("ρ", ρ)
 
     H_hop = hopping_Hamiltonian_1D(dim)
@@ -178,7 +178,7 @@ base_dir = ""
 r_values = [0.3]
 λ_values = [0.67]
 dim_values = [32]
-seeds = 1:2
+seeds = 1:100
 save_every = 300
 dt = 0.01*save_every
 
